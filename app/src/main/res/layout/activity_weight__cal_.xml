@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_weight__cal_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jim.demo_all.weight_calcuate.Weight_Cal_Activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/title"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="个人标准身高计算"
+            android:textSize="35sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+    <Button
+        android:text="运算"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:id="@+id/button_count"
+        android:layout_below="@+id/radioButton_girl"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_count"
+        android:layout_marginBottom="35dp"
+        android:id="@+id/textView1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请选择性别："
+        android:textSize="20sp"
+        android:layout_alignTop="@+id/radioButton_boy"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:text="女"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:id="@+id/radioButton_girl"
+        android:layout_below="@+id/radioButton_boy"
+        android:layout_alignStart="@+id/radioButton_boy" />
+
+    <RadioButton
+        android:text="男"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/radioButton_boy"
+        android:layout_below="@+id/layout_input_weight"
+        android:layout_alignEnd="@+id/button_count" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id="@+id/layout_input_weight"
+        android:layout_below="@+id/title"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="请输入体重:"
+            android:textSize="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/edittext_weight"
+            android:layout_weight="1"
+            android:hint="kg"/>
+    </LinearLayout>
+
+</RelativeLayout>

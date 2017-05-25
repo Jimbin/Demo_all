@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities_array">
+        <item>潮州市</item>
+        <item>广州市</item>
+        <item>汕头市</item>
+        <item>上海市</item>
+        <item>北京市</item>
+    </string-array>
+<integer-array name="number">
+    <item>1</item>
+    <item>2</item>
+</integer-array>
+</resources>

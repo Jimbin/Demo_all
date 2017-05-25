@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/addweb_id"
+        android:title="Add web"/>
+    <item
+        android:id="@+id/dialog_id"
+        android:title="Dialog"
+        />
+    <item
+        android:id="@+id/exit_id"
+        android:title="Exit"
+        />
+    <item
+        android:id="@+id/listview_id"
+        android:title="ListView"
+        />
+    <item
+        android:id="@+id/fragment_id"
+        android:title="Fragment"
+        />
+    <item
+        android:id="@+id/handler_id"
+        android:title="Handler"
+        /><item
+        android:id="@+id/spinner_id"
+        android:title="Spinner"
+        />
+</menu>

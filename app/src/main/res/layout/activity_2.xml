@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:stretchColumns="1"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.jim.demo_all.Activity2">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/tablelayout_id"
+        android:stretchColumns="1">
+    <TableRow>
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="Account:"/>
+        <EditText
+            android:id="@+id/account1_id"
+            android:layout_height="wrap_content"
+            android:hint="imput the account"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="Password:"/>
+        <EditText
+            android:layout_height="wrap_content"
+            android:hint=""/>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:text="Login"
+            android:layout_span="2"/>
+    </TableRow>
+    </TableLayout>
+    <ListView
+        android:divider="#ae9bf1"
+        android:dividerHeight="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/listview2_id"></ListView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="handler text"
+        android:id="@+id/btn_handler"
+        />
+</LinearLayout>
