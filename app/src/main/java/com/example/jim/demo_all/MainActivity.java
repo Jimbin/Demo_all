@@ -19,10 +19,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.jim.demo_all.Animator.AnimatorActivity;
 import com.example.jim.demo_all.Bmob.BmobTestActivity;
 import com.example.jim.demo_all.CustomView.CustomActivity;
 import com.example.jim.demo_all.MyDiary.MyDiaryActivity;
 import com.example.jim.demo_all.MyPhone.ContactInfoActivity;
+import com.example.jim.demo_all.aidl.aidl_Service;
 import com.example.jim.demo_all.fragment.Activity3;
 import com.example.jim.demo_all.weight_calcuate.Weight_Cal_Activity;
 
@@ -42,11 +44,13 @@ public class MainActivity extends BaseActivity {
     private String data=null;
     private int count=0;
     private ArrayList<String> namelist=new ArrayList<String>();
-    //private String[]name={"Add web","Fragment change"};
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        start_aidlservice();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         Bmob.initialize(this, "80c583efe08701c08a2c323302339220");
@@ -72,14 +76,8 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
         Button btn_send= (Button) findViewById(R.id.btn_sendmain);
         final EditText editText= (EditText) findViewById(R.id.edittextmain);
-
-
-
-
-
 
         namelist.add("Add web");
         namelist.add("Fragment change");
@@ -88,6 +86,7 @@ public class MainActivity extends BaseActivity {
         namelist.add("MyDiary");
         namelist.add("Bmob");
         namelist.add("CustomView");
+        namelist.add("Animator");
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1,namelist);
         final ListView listview_sth= (ListView) findViewById(R.id.lisview_sth);
@@ -118,6 +117,9 @@ public class MainActivity extends BaseActivity {
                 }if (namelist.get(position).equals("CustomView")){
                     Intent intent6 =new Intent(MainActivity.this,CustomActivity.class);
                     startActivity(intent6);
+                }if (namelist.get(position).equals("Animator")){
+                    Intent intent6 =new Intent(MainActivity.this,AnimatorActivity.class);
+                    startActivity(intent6);
                 }
             }
         });
@@ -133,7 +135,6 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);*/
                 Activity2.actionStart(MainActivity.this,data);
                 save(data);
-                //Toast.makeText(MainActivity.this,read(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -148,10 +149,15 @@ public class MainActivity extends BaseActivity {
                 makeText(MainActivity.this, "你在摇哦", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
-    private void initname() {
+    private void start_aidlservice() {
+        Intent intent=new Intent(this, aidl_Service.class);
+        startService(intent);
     }
+
 
     public String read() {//读message.txt文件里面的东西
         try {
@@ -259,3 +265,5 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 }
+
+

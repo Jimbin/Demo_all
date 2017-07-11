@@ -15,6 +15,7 @@
     android:layout_height="400dp"
     android:id="@+id/lisview_sth"
     android:listSelector="#e4faf6"
+    android:layoutAnimation="@anim/layout_anim"
     >
 
 </ListView>

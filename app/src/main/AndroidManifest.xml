@@ -41,7 +41,18 @@
         <activity android:name=".Bmob.BmobTestActivity" />
         <activity android:name=".Bmob.LoginActivity" />
         <activity android:name=".Bmob.SignupActivity" />
-        <activity android:name=".CustomView.CustomActivity"></activity>
+        <activity android:name=".CustomView.CustomActivity" />
+        <activity android:name=".Animator.AnimatorActivity" />
+        <activity android:name=".Animator.LayoutAnimationActivity" />
+        <activity android:name=".Animator.Anim_Listview_Activity"></activity>
+        <service
+            android:name=".aidl.aidl_Service"
+            android:exported="true"
+            android:process=":helloaidl"
+            android:permission="com.example.jim.demo_all.aidl.aidl_Service">
+            >
+        </service>
+
     </application>
 
 </manifest>

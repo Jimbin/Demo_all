@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jim.demo_all.Animator.AnimatorActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <ImageView
+        android:id="@+id/animator_girl"
+        android:layout_width="198dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/six"
+        tools:layout_editor_absoluteX="0dp"
+        android:onClick="rotateyAnimRun"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:layout_toStartOf="@+id/animator_dog" />
+
+    <ImageView
+        android:id="@+id/animator_dog"
+        android:layout_width="198dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/six"
+        android:onClick="propertyValuesHolder"
+        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/animator_girl"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="195dp"
+        android:layout_below="@+id/animator_girl"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:id="@+id/ball_pao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ballPao"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageButton
+            android:id="@+id/ball_ziyou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ballZiyou"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_set"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:onClick="btn_set"
+                android:text="测试xml中的动画set"
+                android:layout_below="@+id/test"
+
+                android:layout_marginEnd="16dp" />
+
+            <EditText
+                android:id="@+id/test"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#b9f5e7"
+                android:ems="10"
+                android:inputType="number"
+                android:text="text" />
+
+            <Button
+                android:id="@+id/layout_animation"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:onClick="layout_animation"
+                android:text="测试布局动画"
+                android:layout_below="@+id/btn_set"
+                android:layout_alignParentStart="true" />
+            <Button
+                android:id="@+id/listview_anim"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:onClick="listview_anim"
+                android:text="listview加载动画"
+                android:layout_below="@+id/layout_animation"
+                android:layout_alignParentStart="true" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp">
+
+                <Button
+                    android:id="@+id/menu"
+                    style="@style/menustyle"
+                    android:background="@drawable/six"
+                    android:layout_gravity="bottom|right"/>
+                <Button
+                    android:id="@+id/item1"
+                    style="@style/MenuItemStyle"
+                    android:visibility="gone"
+                    android:background="@drawable/one"
+                    android:layout_gravity="bottom|right"/>
+                <Button
+                    android:id="@+id/item2"
+                    style="@style/MenuItemStyle"
+                    android:visibility="gone"
+                    android:background="@drawable/two"
+                    android:layout_gravity="bottom|right"/>
+                <Button
+                    android:id="@+id/item3"
+                    style="@style/MenuItemStyle"
+                    android:visibility="gone"
+                    android:background="@drawable/three"
+                    android:layout_gravity="bottom|right"/>
+                <Button
+                    android:id="@+id/item4"
+                    style="@style/MenuItemStyle"
+                    android:visibility="gone"
+                    android:background="@drawable/four"
+                    android:layout_gravity="bottom|right"/>
+                <Button
+                    android:id="@+id/item5"
+                    style="@style/MenuItemStyle"
+                    android:visibility="gone"
+                    android:background="@drawable/five"
+                    android:layout_gravity="bottom|right"/>
+            </FrameLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

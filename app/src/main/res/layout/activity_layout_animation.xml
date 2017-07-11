@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/id_container"
+    tools:context="com.example.jim.demo_all.Animator.LayoutAnimationActivity"
+    android:weightSum="1">
+
+
+    <CheckBox
+        android:id="@+id/id_appear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="APPEARING" />
+
+    <CheckBox
+        android:id="@+id/id_change_appear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="CHANGE_APPEARING" />
+
+    <CheckBox
+        android:id="@+id/id_disappear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="DISAPPEARING" />
+
+    <CheckBox
+        android:id="@+id/id_change_disappear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="CHANGE_DISAPPEARING " />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addBtn"
+        android:text="addBtns" />
+
+
+</LinearLayout>
