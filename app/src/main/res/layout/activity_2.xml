@@ -13,10 +13,18 @@
     tools:context="com.example.jim.demo_all.Activity2">
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
         android:id="@+id/tablelayout_id"
         android:stretchColumns="1">
-    <TableRow>
+        <TableRow>
+            <ListView
+                android:divider="#ae9bf1"
+                android:dividerHeight="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:id="@+id/listview2_id"></ListView>
+        </TableRow>
+        <TableRow>
         <TextView
             android:layout_height="wrap_content"
             android:text="Account:"/>
@@ -25,7 +33,7 @@
             android:layout_height="wrap_content"
             android:hint="imput the account"/>
     </TableRow>
-    <TableRow>
+        <TableRow>
         <TextView
             android:layout_height="wrap_content"
             android:text="Password:"/>
@@ -33,22 +41,16 @@
             android:layout_height="wrap_content"
             android:hint=""/>
     </TableRow>
-    <TableRow>
+        <TableRow>
         <Button
             android:text="Login"
             android:layout_span="2"/>
     </TableRow>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="handler text"
+            android:id="@+id/btn_handler"
+            />
     </TableLayout>
-    <ListView
-        android:divider="#ae9bf1"
-        android:dividerHeight="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/listview2_id"></ListView>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="handler text"
-        android:id="@+id/btn_handler"
-        />
 </LinearLayout>

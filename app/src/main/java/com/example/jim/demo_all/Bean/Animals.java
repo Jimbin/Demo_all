@@ -1,4 +1,4 @@
-package com.example.jim.demo_all;
+package com.example.jim.demo_all.Bean;
 
 /**
  * Created by Jim斌 on 2017/2/11.
@@ -6,6 +6,7 @@ package com.example.jim.demo_all;
 
 public class Animals {
     private String name;
+    private String picture;
 
     public int getImageId() {
         return imageId;
@@ -28,4 +29,5 @@ public class Animals {
         this.name=name;
         this.imageId=imageId;
     }
+    public Animals(){};
 }
