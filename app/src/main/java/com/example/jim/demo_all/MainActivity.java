@@ -24,7 +24,6 @@ import com.example.jim.demo_all.Bmob.BmobTestActivity;
 import com.example.jim.demo_all.CustomView.CustomActivity;
 import com.example.jim.demo_all.MyDiary.MyDiaryActivity;
 import com.example.jim.demo_all.MyPhone.ContactInfoActivity;
-import com.example.jim.demo_all.aidl.aidl_Service;
 import com.example.jim.demo_all.fragment.Activity3;
 import com.example.jim.demo_all.weight_calcuate.Weight_Cal_Activity;
 
@@ -50,7 +49,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        start_aidlservice();
+//        start_aidlservice();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         Bmob.initialize(this, "80c583efe08701c08a2c323302339220");

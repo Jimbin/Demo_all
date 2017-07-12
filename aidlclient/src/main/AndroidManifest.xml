@@ -3,8 +3,8 @@
     package="com.example.jim.aidlclient">
 
 
-    <permission android:name="com.example.jim.demo_all.aidl.aidl_Service"/>
-    <uses-permission android:name="com.example.jim.demo_all.aidl.aidl_Service"/>
+    <permission android:name="com.example.jim.demo_all.aidl_Service"/>
+    <uses-permission android:name="com.example.jim.demo_all.aidl_Service"/>
 
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round"

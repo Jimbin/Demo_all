@@ -46,11 +46,12 @@
         <activity android:name=".Animator.LayoutAnimationActivity" />
         <activity android:name=".Animator.Anim_Listview_Activity"></activity>
         <service
-            android:name=".aidl.aidl_Service"
+            android:name=".aidl_Service"
             android:exported="true"
             android:process=":helloaidl"
-            android:permission="com.example.jim.demo_all.aidl.aidl_Service">
+            android:permission="com.example.jim.demo_all.aidl_Service">
             >
+
         </service>
 
     </application>

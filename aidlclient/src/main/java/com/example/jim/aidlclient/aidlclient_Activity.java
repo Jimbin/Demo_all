@@ -26,9 +26,7 @@ public class aidlclient_Activity extends AppCompatActivity  {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             my_aidlinterface=My_AidlInterface.Stub.asInterface(service);//拿到远程服务返回的ibinder对象service
-            Log.d("lalalal绑定成功", "onServiceConnected: ");
         }
-
         @Override
         public void onServiceDisconnected(ComponentName name) {
             my_aidlinterface=null;//回收资源
@@ -73,7 +71,7 @@ public class aidlclient_Activity extends AppCompatActivity  {
         Log.d("lalala", "bindtherservice(): ");
         Intent intent=new Intent();
         intent.setComponent(new ComponentName
-                ("com.example.jim.demo_all.aidl", "com.example.jim.demo_all.aidl.aidl_Service"));
+                ("com.example.jim.demo_all", "com.example.jim.demo_all.aidl_Service"));
         //想要绑定服务的包名跟类名(类名要具体)
         bindService(intent,conn, Context.BIND_AUTO_CREATE);//第二个参数是绑定服务时的回调，第三个参数是一个标志
     }
