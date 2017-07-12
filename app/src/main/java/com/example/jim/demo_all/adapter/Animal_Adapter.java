@@ -43,7 +43,7 @@ public class Animal_Adapter extends ArrayAdapter <Animals>{
             view=convertView;
             viewHolder=(ViewHolder) view.getTag();
         }
-        viewHolder.animalImage1.setImageResource(animals.getImageId());
+//        viewHolder.animalImage1.setImageResource(animals.getImageId());
         viewHolder.animalname1.setText(animals.getName());
         return view;
     }

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.example.jim.demo_all.present.ActivityCollector;
+
 /**
  * Created by Jim斌 on 2017/2/10.
  */

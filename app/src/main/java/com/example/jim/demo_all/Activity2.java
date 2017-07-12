@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +48,6 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
 //        Animal_Adapter adapter_a=new Animal_Adapter(Activity2.this,R.layout.animal_item,animalsList);
         listview= (ListView) findViewById(R.id.listview2_id);
 //        listview.setAdapter(adapter_a);
-
         editText= (EditText) findViewById(R.id.account1_id);
         Intent intent3=getIntent();
          data1=intent3.getStringExtra("part1");
@@ -60,28 +60,28 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
 
         new My_Asyntask().execute(URL);
     }
-    private void initAnimals() {
-        Animals one=new Animals("one",R.drawable.one);
-        animalsList.add(one);
-        Animals two=new Animals("two",R.drawable.two);
-        animalsList.add(two);
-        Animals three=new Animals("three",R.drawable.three);
-        animalsList.add(three);
-        Animals four=new Animals("four",R.drawable.four);
-        animalsList.add(four);
-        Animals five=new Animals("five",R.drawable.five);
-        animalsList.add(five);
-        Animals six=new Animals("six",R.drawable.six);
-        animalsList.add(six);
-        Animals seven=new Animals("seven",R.drawable.seven);
-        animalsList.add(seven);
-        Animals eight=new Animals("eight",R.drawable.eight);
-        animalsList.add(eight);
-        Animals night=new Animals("night",R.drawable.night);
-        animalsList.add(three);
-        Animals ten=new Animals("three",R.drawable.ten);
-        animalsList.add(ten);
-    }
+//    private void initAnimals() {
+//        Animals one=new Animals("one",R.drawable.one);
+//        animalsList.add(one);
+//        Animals two=new Animals("two",R.drawable.two);
+//        animalsList.add(two);
+//        Animals three=new Animals("three",R.drawable.three);
+//        animalsList.add(three);
+//        Animals four=new Animals("four",R.drawable.four);
+//        animalsList.add(four);
+//        Animals five=new Animals("five",R.drawable.five);
+//        animalsList.add(five);
+//        Animals six=new Animals("six",R.drawable.six);
+//        animalsList.add(six);
+//        Animals seven=new Animals("seven",R.drawable.seven);
+//        animalsList.add(seven);
+//        Animals eight=new Animals("eight",R.drawable.eight);
+//        animalsList.add(eight);
+//        Animals night=new Animals("night",R.drawable.night);
+//        animalsList.add(three);
+//        Animals ten=new Animals("three",R.drawable.ten);
+//        animalsList.add(ten);
+//    }
 
     public static void actionStart(Context context, String data1){
         Intent intent=new Intent(context,Activity2.class);
@@ -136,6 +136,7 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    //异步加载
     class My_Asyntask extends AsyncTask<String,Void,List<Animals>>{
 
         @Override
@@ -156,6 +157,7 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
         List<Animals> animallist=new ArrayList<>();
         try {
             String jsonString=readStream(new URL(URL).openStream());
+            Log.d("lala", "getJsonData: "+jsonString);
             JSONObject jsonobject;
             Animals animals;
             try {
@@ -165,8 +167,8 @@ public class Activity2 extends BaseActivity implements View.OnClickListener {
                     jsonobject=jsonarray.getJSONObject(j);
                     animals=new Animals();
                     animals.setName(jsonobject.getString("name"));
+                    animals.setImageId(jsonobject.getString("picSmall"));
                     animallist.add(animals);
-
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

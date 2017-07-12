@@ -25,6 +25,8 @@ import com.example.jim.demo_all.CustomView.CustomActivity;
 import com.example.jim.demo_all.MyDiary.MyDiaryActivity;
 import com.example.jim.demo_all.MyPhone.ContactInfoActivity;
 import com.example.jim.demo_all.fragment.Activity3;
+import com.example.jim.demo_all.present.ActivityCollector;
+import com.example.jim.demo_all.present.SensorManagerHelper;
 import com.example.jim.demo_all.weight_calcuate.Weight_Cal_Activity;
 
 import org.json.JSONObject;

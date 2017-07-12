@@ -8,11 +8,11 @@ public class Animals {
     private String name;
     private String picture;
 
-    public int getImageId() {
+    public String getImageId() {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
+    public void setImageId(String imageId) {
         this.imageId = imageId;
     }
 
@@ -24,8 +24,8 @@ public class Animals {
         this.name = name;
     }
 
-    private int imageId;
-    public Animals(String name,int imageId){
+    private String imageId;
+    public Animals(String name,String imageId){
         this.name=name;
         this.imageId=imageId;
     }
