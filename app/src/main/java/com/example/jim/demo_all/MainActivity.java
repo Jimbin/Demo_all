@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.example.jim.demo_all.Animator.AnimatorActivity;
 import com.example.jim.demo_all.Bmob.BmobTestActivity;
 import com.example.jim.demo_all.CustomView.CustomActivity;
@@ -27,6 +29,7 @@ import com.example.jim.demo_all.MyPhone.ContactInfoActivity;
 import com.example.jim.demo_all.fragment.Activity3;
 import com.example.jim.demo_all.present.ActivityCollector;
 import com.example.jim.demo_all.present.SensorManagerHelper;
+import com.example.jim.demo_all.present.volley_test;
 import com.example.jim.demo_all.weight_calcuate.Weight_Cal_Activity;
 
 import org.json.JSONObject;
@@ -44,6 +47,10 @@ import static android.widget.Toast.makeText;
 public class MainActivity extends BaseActivity {
     private String data=null;
     private int count=0;
+    private Button btn_send;
+    private EditText editText;
+    private ListView listview_sth;
+    private RequestQueue mQueue;
     private ArrayList<String> namelist=new ArrayList<String>();
 
     @Override
@@ -51,7 +58,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        start_aidlservice();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         Bmob.initialize(this, "80c583efe08701c08a2c323302339220");
@@ -67,30 +73,40 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onDataChange(JSONObject jsonObject) {
-//                Log.d("bmob","数据："+data);
                 if (BmobRealTimeData.ACTION_UPDATEROW.equals(jsonObject.optString("updateRow"))){
-//                        count=count+1;
-//                        Log.d("修改的值为：", count+": ");
                 makeText(MainActivity.this,"this,gengxinle",Toast.LENGTH_LONG).show();
                 }
-//                count=jsonObject.get
             }
         });
 
-        Button btn_send= (Button) findViewById(R.id.btn_sendmain);
-        final EditText editText= (EditText) findViewById(R.id.edittextmain);
+        mQueue = Volley.newRequestQueue(MainActivity.this);
 
-        namelist.add("Add web");
-        namelist.add("Fragment change");
-        namelist.add("Weight calcuate");
-        namelist.add("Myphone");
-        namelist.add("MyDiary");
-        namelist.add("Bmob");
-        namelist.add("CustomView");
-        namelist.add("Animator");
+        initview();
+        initListviewData();
+        initListview();
+
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data=editText.getText().toString();
+                Activity2.actionStart(MainActivity.this,data);
+                save(data);
+            }
+        });
+
+        SensorManagerHelper sensorHelper = new SensorManagerHelper(this);
+        sensorHelper.setOnShakeListener(new SensorManagerHelper.OnShakeListener() {
+
+            @Override
+            public void onShake() {
+                makeText(MainActivity.this, "你在摇哦", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void initListview() {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1,namelist);
-        final ListView listview_sth= (ListView) findViewById(R.id.lisview_sth);
         listview_sth.setAdapter(adapter);
         listview_sth.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -121,46 +137,35 @@ public class MainActivity extends BaseActivity {
                 }if (namelist.get(position).equals("Animator")){
                     Intent intent6 =new Intent(MainActivity.this,AnimatorActivity.class);
                     startActivity(intent6);
+                }if (namelist.get(position).equals("volley")){
+                    volley_test volley_test1=new volley_test();
+                    volley_test1.Get();
+                    mQueue.add(volley_test1.stringRequest);
                 }
             }
         });
-
-
-
-        btn_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                data=editText.getText().toString();
-                /*Intent intent=new Intent(MainActivity.this,Activity2.class);
-                intent.putExtra("part1",data);
-                startActivity(intent);*/
-                Activity2.actionStart(MainActivity.this,data);
-                save(data);
-            }
-        });
-
-
-        SensorManagerHelper sensorHelper = new SensorManagerHelper(this);
-        sensorHelper.setOnShakeListener(new SensorManagerHelper.OnShakeListener() {
-
-            @Override
-            public void onShake() {
-                // TODO Auto-generated method stub
-//                System.out.println("shake");
-                makeText(MainActivity.this, "你在摇哦", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
     }
 
-    private void start_aidlservice() {
-        Intent intent=new Intent(this, aidl_Service.class);
-        startService(intent);
+    private void initview() {
+        btn_send= (Button) findViewById(R.id.btn_sendmain);
+        editText= (EditText) findViewById(R.id.edittextmain);
+        listview_sth= (ListView) findViewById(R.id.lisview_sth);
     }
 
+    private void initListviewData() {
+        namelist.add("Add web");
+        namelist.add("Fragment change");
+        namelist.add("Weight calcuate");
+        namelist.add("Myphone");
+        namelist.add("MyDiary");
+        namelist.add("Bmob");
+        namelist.add("CustomView");
+        namelist.add("Animator");
+        namelist.add("volley");
+    }
 
-    public String read() {//读message.txt文件里面的东西
+    //读message.txt文件里面的东西
+    public String read() {
         try {
             FileInputStream inStream = this.openFileInput("message.txt");
             byte[] buffer = new byte[1024];
@@ -169,7 +174,6 @@ public class MainActivity extends BaseActivity {
             while ((hasRead = inStream.read(buffer)) != -1) {
                 sb.append(new String(buffer, 0, hasRead));
             }
-
             inStream.close();
             return sb.toString();
         } catch (Exception e) {
@@ -177,7 +181,8 @@ public class MainActivity extends BaseActivity {
         }
         return null;
     }
-    public void save(String inputtext) {//写文件
+    //写文件
+    public void save(String inputtext) {
         try {
             // 步骤2:创建一个FileOutputStream对象,MODE_APPEND追加模式
             FileOutputStream fos = openFileOutput("message.txt",
@@ -190,7 +195,6 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
