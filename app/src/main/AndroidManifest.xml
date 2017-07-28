@@ -44,16 +44,17 @@
         <activity android:name=".CustomView.CustomActivity" />
         <activity android:name=".Animator.AnimatorActivity" />
         <activity android:name=".Animator.LayoutAnimationActivity" />
-        <activity android:name=".Animator.Anim_Listview_Activity"></activity>
+        <activity android:name=".Animator.Anim_Listview_Activity" />
+
         <service
             android:name=".aidl_Service"
             android:exported="true"
-            android:process=":helloaidl"
-            android:permission="com.example.jim.demo_all.aidl_Service">
+            android:permission="com.example.jim.demo_all.aidl_Service"
+            android:process=":helloaidl">
             >
-
         </service>
 
+        <activity android:name=".RecycleActivity"></activity>
     </application>
 
 </manifest>

@@ -22,10 +22,16 @@ public class Animal_Adapter2 extends BaseAdapter {
     private List<Animals>list;
     private LayoutInflater layoutInflater;
 
+    /**
+     * @param context
+     * @param animallist
+     */
     public Animal_Adapter2(Context context, List<Animals> animallist){
         list=animallist;
         layoutInflater=LayoutInflater.from(context);
     }
+
+
 
     @Override
     public int getCount() {

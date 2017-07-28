@@ -141,6 +141,9 @@ public class MainActivity extends BaseActivity {
                     volley_test volley_test1=new volley_test();
                     volley_test1.Get();
                     mQueue.add(volley_test1.stringRequest);
+                }if (namelist.get(position).equals("RecycleView")){
+                    Intent intent=new Intent(MainActivity.this,RecycleActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -162,6 +165,7 @@ public class MainActivity extends BaseActivity {
         namelist.add("CustomView");
         namelist.add("Animator");
         namelist.add("volley");
+        namelist.add("RecycleView");
     }
 
     //读message.txt文件里面的东西

@@ -1,1 +1,1 @@
-include ':app', ':okhttp_demo', ':aidlclient'
+include ':app', ':okhttp_demo', ':aidlclient', ':blockcanary'

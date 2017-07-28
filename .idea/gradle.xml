@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aidlclient" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/blockcanary" />
             <option value="$PROJECT_DIR$/okhttp_demo" />
           </set>
         </option>
